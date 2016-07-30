@@ -1,0 +1,54 @@
+//@import '~hack'
+@import 'variables'
+@import 'fonts'
+//@import 'sprites'
+
+html,
+body
+  font: 100% $sans
+  background: $bgcolor
+  color: $fgcolor
+  transition: background-color .3s
+
+$bgcolor: #c0ddab
+.prerender
+  background: $bgcolor
+  color: invert($bgcolor)
+  font-weight: bold
+  font: 2em $sans
+  display: block
+  height: 300px
+  width: 600px
+  top: center
+  left: center
+  //overflow: hidden
+
+h3.loading
+  text-decoration: none
+  color: lighten(#af3fac, 90%)
+  left: center
+  font-size: 60px
+  z-index: 1
+  //animation: glow .3s infinite linear
+  &:before
+    content: ''
+    position: absolute
+    width: 100%
+    height: 3px
+    bottom: 0
+    left: 0
+    background: #0d757d
+    visibility: hidden
+    border-radius: 5px
+    transform: scaleX(0)
+    transition: .25s linear
+  &:hover:before,
+  &:focus:before
+    visibilit: visible
+    transform: scaleX(1)
+
+@keyframes glow
+  0%
+    transform: translateY(20px)
+  100%
+    transform: translateY(40px)
