@@ -1,6 +1,7 @@
 #SRC = src/*
 #NPM = `npm bin`
 BIN = `npm bin`
+BACKEND = '../backend'
 
 all: build
 
@@ -17,8 +18,8 @@ watch:
 clean:
 	@rm -rf dist
 
-web:
-	@rm -rf ../web/static
-	@cp -R dist/* ../web
+web: build
+	@rm -rf $(BACKEND)/public/*
+	@cp -R dist/* $(BACKEND)/public
 
 .PHONY: all test clean doc build watch
